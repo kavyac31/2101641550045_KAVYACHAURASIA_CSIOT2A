@@ -1,0 +1,92 @@
+#next greater element to right
+def nextLargerElement(self,arr,n):
+        #code here
+        st=[-1]
+        r=[]
+        ans=[]
+        for i in range(n-1,-1,-1):
+            if(st[-1]==-1 or st[-1]>arr[i]):
+                r.append(st[-1])
+                st.append(arr[i])
+            else:
+                while(st[-1]!=-1 and st[-1]<=arr[i]):
+                    st.pop()
+                r.append(st[-1])
+                st.append(arr[i])
+        r.reverse()
+        ans=r
+        return ans
+        
+#Next smaller element to the right
+def immediateSmaller(self,arr,n):
+		# code here
+		st=[-1]
+		r=[]
+		for i in range(n-1,-1,-1):
+		    if(st[-1]==-1 or st[-1]<arr[i]):
+		        r.append(st[-1])
+		        st.append(arr[i])
+		    else:
+		        while(st[-1]!=-1 and st[-1]>=arr[i]):
+		            st.pop()
+		        r.append(st[-1])
+		        st.append(arr[i])
+		r.reverse()
+		return r
+#next greater element to the left
+def nextLargerElement(self,arr,n):
+        #code here
+        st=[-1]
+        r=[]
+        ans=[]
+        for i in range(len(arr)):
+            if(st[-1]==-1 or st[-1]>arr[i]):
+                r.append(st[-1])
+                st.append(arr[i])
+            else:
+                while(st[-1]!=-1 and st[-1]<=arr[i]):
+                    st.pop()
+                r.append(st[-1])
+                st.append(arr[i])
+        r.reverse()
+        ans=r
+        return ans
+
+#Next smaller element to the left
+def immediateSmaller(self,arr,n):
+		# code here
+		st=[-1]
+		r=[]
+		for i in range(len(arr)):
+		    if(st[-1]==-1 or st[-1]<arr[i]):
+		        r.append(st[-1])
+		        st.append(arr[i])
+		    else:
+		        while(st[-1]!=-1 and st[-1]>=arr[i]):
+		            st.pop()
+		        r.append(st[-1])
+		        st.append(arr[i])
+		r.reverse()
+		return r
+ 
+#Valid parenthesis
+ #User function Template for python3
+
+class Solution:
+    def ispar(self,x):
+        st=[]
+        for i in (x):
+            if i in ['[','(','{']:
+                st.append(i)
+            if  i in [']','{',')']:
+                if st[-1] != i:
+                    return "false"
+                else:
+                    return "true"
+                    st.pop()
+        if len(st)==0:
+            return ("true")
+        else:
+            return ("false")
+ 
+	
